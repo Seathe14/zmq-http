@@ -127,10 +127,10 @@ int main()
     std::thread httpTh(&HTTPServer::listen, &httpServer);
     zmqTh.detach();
     httpTh.join();
-	std::ofstream ofs(studentsOutput);
-	for (int i = 0; i < students1.size();i++)
-	{
-		ofs << students1[i].id << " " << students1[i].name << " " << students1[i].surname << " " << students1[i].dateOfBirth << "\n";
-	}
+    std::ofstream ofs(studentsOutput);
+    for (int i = 0; i < students1.size();i++)
+    {
+    	ofs << students1[i].id << " " << students1[i].name << " " << students1[i].surname << " " << students1[i].dateOfBirth << "\n";
+    }
     //std::cin.get();
 }
