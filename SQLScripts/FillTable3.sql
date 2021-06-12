@@ -1,0 +1,5 @@
+INSERT INTO Table3(ID,Value) SELECT * FROM table1 t1 WHERE
+t1.value NOT IN (SELECT VALUE FROM table2);
+
+INSERT INTO Table3(ID,Value) SELECT * FROM table2 t2 WHERE
+t2.value NOT IN (SELECT VALUE FROM table1);
