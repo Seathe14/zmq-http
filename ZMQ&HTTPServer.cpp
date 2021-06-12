@@ -121,16 +121,16 @@ int main()
     ZMQServer server;
     HTTPServer httpServer;
     fillStudentsInfo();
-	std::ofstream ofs(studentsOutput);
-	for (int i = 0; i < students1.size();i++)
-	{
-		ofs << students1[i].id << " " << students1[i].name << " " << students1[i].surname << " " << students1[i].dateOfBirth << "\n";
-	}
 	ofs.close();
     addNonMatchingRecords(students1, students2);
     std::thread zmqTh(&ZMQServer::send,&server);
     std::thread httpTh(&HTTPServer::listen, &httpServer);
     zmqTh.detach();
     httpTh.join();
+	std::ofstream ofs(studentsOutput);
+	for (int i = 0; i < students1.size();i++)
+	{
+		ofs << students1[i].id << " " << students1[i].name << " " << students1[i].surname << " " << students1[i].dateOfBirth << "\n";
+	}
     //std::cin.get();
 }
