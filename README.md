@@ -3,9 +3,9 @@ ZMQ HTTP client-server application
 
 Build steps:
 
-1. Build libzmq
+1. Build libzmq  make -j4 install
 
-2. Build cppzmq
+2. Build cppzmq  make -j4 install
 
 3. Build main project 
 
